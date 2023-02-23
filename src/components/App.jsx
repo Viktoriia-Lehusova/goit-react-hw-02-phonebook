@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from 'components/Form/Form';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
+import { StyledTitle, Box } from './App.styled';
 import shortid from 'shortid';
 
 class App extends Component {
@@ -55,16 +56,16 @@ class App extends Component {
     const filtredContacts = this.getFiltredContacts();
 
     return (
-      <div>
-        <h2>Phonebook</h2>
+      <Box>
+        <StyledTitle>Phonebook</StyledTitle>
         <Form onSubmit={this.addNewContact} />
-        <h2>Contacts</h2>
+        <StyledTitle>Contacts</StyledTitle>
         <Filter value={this.state.filter} onChangeFilter={this.changeFilter} />
         <ContactList
           contacts={filtredContacts}
           onDeleteContact={this.deleteContact}
         />
-      </div>
+      </Box>
     );
   }
 }
